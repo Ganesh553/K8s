@@ -9,7 +9,7 @@ pipeline {
     }
     
 	agent {
-     label 'docker-build'
+     labels 'docker-build'
   }
   
   stages {
