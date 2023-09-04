@@ -12,7 +12,7 @@ pipeline {
 	 stage('Deploying App to Kubernetes') {
 
         steps {
-               sshagent(['k8s-master-node']) {
+              sshagent(['K8s-Cred']) {
              sh "scp -o StrictHostKeyChecking=no  k8s-deployment-service-manifest-file.yaml  ubuntu@3.110.183.8:/home/ubuntu"
               sh "ssh -o StrictHostKeyChecking=no ubuntu@3.110.183.8 'kubectl apply -f k8s-deployment-service-manifest-file.yaml' "
             }
